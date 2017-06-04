@@ -1,3 +1,30 @@
+
+# Documentation
+
+## Steps Required to Run the Application
+
+```bash
+  $> cd /path/to/your-project-folder
+  $> python -m SimpleHTTPServer 8080
+```
+
+## Optimzations made
+
+### index.html
+
+- Moved external CSS to internal CSS stylesheet
+- Removed external font reference
+- Made getting Google Analytics JavaScript library async
+
+### views/js/main.js 
+
+- `changePizzaSizes` : Changes made to prevent FSL based on https://www.youtube.com/watch?v=C7HqMCCQok4. Removed redundant document.querySelectorAll(".randomPizzaContainer") and unecessary logic that accesses offsetWidth multiple times. 
+- `updatePositions` : Moved call to scrollTop outside the loop 
+- `DOMContentLoaded` event listener : Reduced number of image elements to 31 since only 31 are displayed on the screen
+
+
+# Original README
+
 ## Website Performance Optimization portfolio project
 
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
