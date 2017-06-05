@@ -422,6 +422,8 @@ var resizePizzas = function(size) {
   changeSliderLabel(size);
 
   // Iterates through pizza elements on the page and changes their widths
+  // Changes made to prevent FSL based on https://www.youtube.com/watch?v=C7HqMCCQok4
+  // Removed redundant document.querySelectorAll(".randomPizzaContainer")
   function changePizzaSizes(size) {
     switch(size) {
       case "1":
@@ -439,7 +441,7 @@ var resizePizzas = function(size) {
 
     var randomPizzaContainer = document.querySelectorAll(".randomPizzaContainer")
     for (var i = 0; i < randomPizzaContainer.length; i++) {
-      randomPizzaContainer[i].style.width = newwidth + "%";
+      randomPizzaContainer[i].style.width = newWidth + "%";
     }
   }
 
@@ -489,6 +491,7 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var items = document.querySelectorAll('.mover'),
+  // scrollTop caused FSL. Removed out of the loop
   scrollTop = document.body.scrollTop;
 
   for (var i = 0; i < items.length; i++) {
@@ -513,6 +516,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
+  // Reduced number of pizzas since only 31 are displayed
   for (var i = 0; i < 31; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
