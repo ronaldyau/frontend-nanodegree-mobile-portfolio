@@ -22,6 +22,9 @@
 - `updatePositions` : Moved call to scrollTop outside the loop 
 - `DOMContentLoaded` event listener : Reduced number of image elements to 31 since only 31 are displayed on the screen
 
+### /views/images/pizzeria.jpg
+
+- Created different sized versions
 
 # Original README
 
